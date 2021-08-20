@@ -1,6 +1,8 @@
 # MultiplePagePrintingObjC
 Multiple Page Printing, macOS Objective-C
 
+![](images/Example.jpg)
+
 ## What this is
 
 Ignore the scrollview for a moment and think of the content view as one giant rectangle. If you knew the page number,
@@ -26,6 +28,14 @@ The Document, because it inherits from `NSDocument`, is already listening for wi
 
 The Cocoa print system does support a limited auto-pagination function, but all it seems to do is move a single line of text so that the characters aren't sliced through the middle, with the tops at the end of one page and the bottoms at the start of the next. That won't keep our labelViews from getting sliced.
 
+## To Build:
+
+* Open the Xcode project and in the Info panel of the PagePrintExample target change the `com.example` prefix of the bundle Identifier from `com.turbozen.PagePrintExample`  to a domain you control.
+
+* In the **Signing & Capabilities** panel, choose a team to build and sign with.
+
+* **Build** from the **Product** menu
+
 ## Summary
 
  `- (BOOL)knowsPageRange:(NSRangePointer)range`  - return number of printed pages in your content view
@@ -39,9 +49,9 @@ as of this writing:
 
 [MultiplePagePrintingSwift](https://github.com/DavidPhillipOster/MultiplePagePrintingSwift)  is my same example, but worked in Swift.
 
-XXX handles cell based tableViews, but doesn't work for view-based ones.
+[Paginating an NSTableView](https://lists.apple.com/archives/cocoa-dev/2002/Nov/msg01710.html) handles cell based tableViews, but doesn't work for view-based ones.
 
-XXX uses an NSStackView and seems to work, but it's just Cocoa's auto-pagination, it only apparently works because the cells are just a single one-line of text. Extending it to mailing labels makes it fail.
+[How to Print on macOS With An NSTableView and Customize the Result](https://christiantietze.de/posts/2021/06/printing-nstableview-with-label/) uses an NSStackView and seems to work, but it's just Cocoa's auto-pagination, it only apparently works because the cells are just a single one-line of text. Extending it to mailing labels makes it fail.
 
 
 ## License
